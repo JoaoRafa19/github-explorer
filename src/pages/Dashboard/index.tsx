@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
     async function handleAddRepository(event: React.FormEvent): Promise<void> {
         event.preventDefault();
         if (!newRepo) {
-            setInputError(`Digite um 'autor/repositório' válido`);
+            setInputError(`Digite um 'autor/repositório' válido (ex: facebook/react)`);
             return;
         }
         // Adicionar repositorio
@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
             setInputError(``);
             //adicionar o novo repositório do local storage
         } catch (error) {
-            setInputError(`Erro: Digite um 'autor/repositório' válido`);
+            setInputError(`Erro: Digite um 'autor/repositório' válido (ex: facebook/react)`);
         }
     }
 
@@ -63,7 +63,7 @@ const Dashboard: React.FC = () => {
         <img src={logoImage} alt="Github Explorer" />
         <Title>Explore repositórios no Github</Title>
         <Form $haserror={!!inputError} onSubmit={handleAddRepository}>
-            <input placeholder="Digite o nome do repositório" value={newRepo} onChange={(e) => setNewRepo(e.target.value)} ></input>
+            <input placeholder="Digite o nome do repositório válido (ex: facebook/react)" value={newRepo} onChange={(e) => setNewRepo(e.target.value)} ></input>
             <button type="submit">Pesquisar</button>
         </Form>
         {
